@@ -48,3 +48,9 @@ M7: [GBDG]2 [(C,D)CEG] [EG(B,C#)G] |
 M8: [(D,E)F#(D,C)A] [FGBG] [(E,D)(G,F)(C,D)(A,B)] [(E,F#)(G,A)(C,D)C]
 ```
 As you can see, no octaves are shown, but the rest of the formatting is the same. This formatting works best for machine learning.
+
+### Disclaimer
+This program will be updated if more bugs are found. This is primarily meant to be used for simple tokenization, so any that relate to 
+increasingly complex works might not be handled.
+
+Feel free to use this parser for tokenization, but cite: jeremy.ng@yale.edu
