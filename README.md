@@ -55,4 +55,4 @@ As you can see, no octaves are shown, but the rest of the formatting is the same
 This program will be updated if more bugs are found. This is primarily meant to be used for simple tokenization, so any that relate to 
 increasingly complex works might not be handled.
 
-Feel free to use this parser for tokenization, but cite: jeremy.ng@yale.edu
+Feel free to use this parser for tokenization and fork it as you like! However, make sure to cite: jeremy.ng@yale.edu.
