@@ -34,6 +34,8 @@ M7: [G2B3D4G4]2 [(C3,D3)C4E4G4] [E3G3(B3,C#4)G4] |
 ```
 The pitches are written in ascending order, with the soprano voice being at the top. Each [] indicates a beat. Each note is a voice in the chord. Parentheses indicate subdivisions of the beat, i.e. notes with a division half that of the beat (eighth notes, for example).
 
+Like in ABC notation, M represents the meter (time signature), and key represents the key (lower case represents minor, upper case represents major). Each M represents a measure (you will know if the program broke if there are more beats than in the key signature).
+
 Here is an example with the ML flag on:
 ```
 M: 4/4
