@@ -154,6 +154,12 @@ uint16_t nearest_bin_power(uint16_t n) {
 int init_parse(std::string* input) {
     init_state state = TAG;
     init_params params;
+    
+    // Defaults
+    params.beats = 4;
+    params.beat_type = 4;
+    params.key_center = 'C';
+    params.major = 0;
 
     char* input_str = (char*) input->c_str();
     std::string tag_str;
