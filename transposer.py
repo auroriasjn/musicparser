@@ -15,7 +15,7 @@ def extract_letters_between_parentheses(string):
             break
 
         letters = string[opening + 1:closing].strip()
-        if len(letters) == 1:
+        if len(letters) == 1 or len(letters) == 2:
             indices.append((opening, closing))
 
         start = closing + 1
@@ -28,18 +28,14 @@ def note_spelling(key, is_major):
 
     # Setting whether to use flat or sharp notes with respect to the key
     note_arr = sharp_arr
-    is_sharp = True
     if len(key) > 1 and key[1] == '♭':
         note_arr = flat_arr
-        is_sharp = False
     elif len(key) == 1 and is_major and key[0] == 'F':
         note_arr = flat_arr
-        is_sharp = False
     elif not is_major and len(key) == 1:
         sharp_min_keys = ['E', 'A', 'B']
         if key[0].upper() not in sharp_min_keys:
             note_arr = flat_arr
-            is_sharp = False
 
     # Find the index of the key.
     key_loc = note_arr.index(key)
@@ -67,7 +63,6 @@ def transpose_roman_nums(indices, key_map, roman_nums):
         end_index = index_pair[1] + offset
 
         inner_string = roman_nums[start_index:end_index]
-
         new_str = key_map[inner_string.upper()]
         if inner_string[0].islower():
             new_str = new_str.lower()
@@ -107,6 +102,7 @@ if __name__ == '__main__':
                 orig_key = orig_key.upper()
                 continue
 
+    print("ORIGINAL:")
     print(roman_nums)
 
     # Getting the original key scale
@@ -147,8 +143,8 @@ if __name__ == '__main__':
         scale_mapping = create_key_map(orig_key_arr, note_arr)
         new_roman_nums = transpose_roman_nums(indices, scale_mapping, roman_nums)
 
+        '''
         with open(curr_path, 'a') as outfile:
             outfile.write(new_roman_nums)
-
-
+        '''
 
