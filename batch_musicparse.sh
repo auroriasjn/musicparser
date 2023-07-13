@@ -3,7 +3,6 @@
 low='abcdefghijklmnopqrstuvwxyz'
 cap='ABCDEFGHIJKLMNOPQRSTUVWXYZ'
 
-# Just a batch transpose function assuming all batch MusicXML files were created.
 for i in BetterChorales/$1/Chorale*.xml; do
   SUFFIX=$(echo $i | tail -c 7)
   FILE_END=$(printf "%s" "$SUFFIX" | sed "s/[0-9]//g")
@@ -75,6 +74,9 @@ for i in BetterChorales/$1/Chorale*.xml; do
     ;;
   "gs")
     KEY="g_sharp_${TONALITY}"
+    ;;
+  *)
+    continue
     ;;
   esac
 
