@@ -143,8 +143,6 @@ if __name__ == '__main__':
         scale_mapping = create_key_map(orig_key_arr, note_arr)
         new_roman_nums = transpose_roman_nums(indices, scale_mapping, roman_nums)
 
-        '''
         with open(curr_path, 'a') as outfile:
             outfile.write(new_roman_nums)
-        '''
 
