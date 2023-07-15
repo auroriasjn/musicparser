@@ -1,6 +1,8 @@
 import os
 import sys
 
+SHARP_LEN = 12
+
 def extract_letters_between_parentheses(string):
     indices = []
     start = 0
@@ -52,6 +54,14 @@ def create_key_map(orig_key_arr, new_key_arr):
     elif len(orig) < len(new):
         b_loc = [val.upper() for val in new].index("B")
         orig.insert(b_loc, orig[b_loc % len(orig)])
+    elif len(orig) == len(new) and len(orig) > SHARP_LEN:
+        # The mapping is not completely perfect at first so we have to correct it.
+        b_loc = [val.upper() for val in new].index("B")
+        new.pop(b_loc)
+
+        # Proceed as in upper use case.
+        b_loc = [val.upper() for val in orig].index("B")
+        new.insert(b_loc, new[b_loc % len(new)])
 
     key_dict = dict(zip(orig, new))
     return key_dict
@@ -143,6 +153,6 @@ if __name__ == '__main__':
         scale_mapping = create_key_map(orig_key_arr, note_arr)
         new_roman_nums = transpose_roman_nums(indices, scale_mapping, roman_nums)
 
-        with open(curr_path, 'a') as outfile:
-            outfile.write(new_roman_nums)
-
+        if os.path.exists(curr_path):
+            with open(curr_path, 'a') as outfile:
+                outfile.write(new_roman_nums)
