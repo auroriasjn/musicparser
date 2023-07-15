@@ -13,12 +13,12 @@ for i in BetterChorales/$1/Chorale*.xml; do
   KEY="a_flat_${TONALITY}"
 
   case $END_LETTERS in
-    [$low]*)
-      TONALITY="min"
-      ;;
-    [$cap]*)
-      TONALITY="maj"
-      ;;
+  [$low]*)
+    TONALITY="min"
+    ;;
+  [$cap]*)
+    TONALITY="maj"
+    ;;
   esac
 
   END_LETTERS=$(echo "$END_LETTERS" | tr '[:upper:]' '[:lower:]')
@@ -82,61 +82,61 @@ for i in BetterChorales/$1/Chorale*.xml; do
 
   WRITTEN_KEY="C"
   case $END_LETTERS in
-    "af")
-      WRITTEN_KEY="A♭"
-      ;;
-    "a")
-      WRITTEN_KEY="A"
-      ;;
-    "as")
-      WRITTEN_KEY="A#"
-      ;;
-    "bf")
-      WRITTEN_KEY="B♭"
-      ;;
-    "b")
-      WRITTEN_KEY="B"
-      ;;
-    "cf")
-      WRITTEN_KEY="C♭"
-      ;;
-    "c")
-      WRITTEN_KEY="C"
-      ;;
-    "cs")
-      WRITTEN_KEY="C#"
-      ;;
-    "df")
-      WRITTEN_KEY="D♭"
-      ;;
-    "d")
-      WRITTEN_KEY="D"
-      ;;
-    "ef")
-      WRITTEN_KEY="E♭"
-      ;;
-    "e")
-      WRITTEN_KEY="E"
-      ;;
-    "f")
-      WRITTEN_KEY="F"
-      ;;
-    "fs")
-      WRITTEN_KEY="F#"
-      ;;
-    "gf")
-      WRITTEN_KEY="G♭"
-      ;;
-    "g")
-      WRITTEN_KEY="G"
-      ;;
-    "gs")
-      WRITTEN_KEY="G#"
-      ;;
-    *)
-      continue
-      ;;
-    esac
+  "af")
+    WRITTEN_KEY="A♭"
+    ;;
+  "a")
+    WRITTEN_KEY="A"
+    ;;
+  "as")
+    WRITTEN_KEY="A#"
+    ;;
+  "bf")
+    WRITTEN_KEY="B♭"
+    ;;
+  "b")
+    WRITTEN_KEY="B"
+    ;;
+  "cf")
+    WRITTEN_KEY="C♭"
+    ;;
+  "c")
+    WRITTEN_KEY="C"
+    ;;
+  "cs")
+    WRITTEN_KEY="C#"
+    ;;
+  "df")
+    WRITTEN_KEY="D♭"
+    ;;
+  "d")
+    WRITTEN_KEY="D"
+    ;;
+  "ef")
+    WRITTEN_KEY="E♭"
+    ;;
+  "e")
+    WRITTEN_KEY="E"
+    ;;
+  "f")
+    WRITTEN_KEY="F"
+    ;;
+  "fs")
+    WRITTEN_KEY="F#"
+    ;;
+  "gf")
+    WRITTEN_KEY="G♭"
+    ;;
+  "g")
+    WRITTEN_KEY="G"
+    ;;
+  "gs")
+    WRITTEN_KEY="G#"
+    ;;
+  *)
+    continue
+    ;;
+  esac
 
   if [ "$TONALITY" = "min" ]; then
     WRITTEN_KEY=$(echo "$WRITTEN_KEY" | tr '[:upper:]' '[:lower:]')
@@ -145,12 +145,12 @@ for i in BetterChorales/$1/Chorale*.xml; do
   FILE_OUTPUT="outputs/${KEY}/${NUM}.txt"
 
   if [ ! -f "$FILE_OUTPUT" ]; then
-    ./musicparse $i 2 > $FILE_OUTPUT
-    echo "---" >> $FILE_OUTPUT
+    ./musicparse $i 2 >$FILE_OUTPUT
+    echo "---" >>$FILE_OUTPUT
 
     # Replace "K: X" with "X: KEY"
-    awk -v key="$WRITTEN_KEY" '/^K: / { $0 = "K: " key } 1' "$FILE_OUTPUT" > tmp_file
-        mv tmp_file "$FILE_OUTPUT"
+    awk -v key="$WRITTEN_KEY" '/^K: / { $0 = "K: " key } 1' "$FILE_OUTPUT" >tmp_file
+    mv tmp_file "$FILE_OUTPUT"
   fi
 
 done
